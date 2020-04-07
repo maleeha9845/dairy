@@ -1,0 +1,44 @@
+.side-bar-container{
+  width:15%;
+  height:100%;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+
+}
+.sideBar-separater-div{
+  border-top: 0.05px ridge  #233659;
+  padding-top: 8px;
+
+  margin-top: 5px;
+}
+.add{
+
+  border:solid 1px lightgray;
+  
+justify-content: flex-end;
+background-color: #DCDCDC;
+
+
+}
+.disappear{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: #DCDCDC;
+  margin: 0px;
+}
+
+.close{
+  border: none;
+  font-size: bold;
+  background-color: inherit;
+
+
+}
+.block1{
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;
+}

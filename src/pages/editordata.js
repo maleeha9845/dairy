@@ -29,11 +29,18 @@ class EditorData extends Component {
     });
 
   render() {
+    const key = this.props.match.params.date;
+    const date = this.props.read && this.props.read.details ?this.props.read.details[key]['date'] : 'no date';
+    const month= this.props.read && this.props.read.details ?this.props.read.details[key]['month'] : 'no month';
     return (
-      <Editor
-        defaultEditorState={ this.state.editorState }
-        onEditorStateChange={this.onEditorStateChange}
-      />
+      <div>
+         <Editor
+          defaultEditorState={ this.state.editorState }
+          onEditorStateChange={this.onEditorStateChange}
+         />
+         <p>{date}</p>
+         <p>{month}</p>
+      </div>
     );
   }
 }
@@ -41,6 +48,7 @@ class EditorData extends Component {
 const mapStateToProps = (state, props) => {
   return {
     content: state.read.data,
+    read: state.read,
   }
 }
 

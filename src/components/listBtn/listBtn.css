@@ -1,0 +1,75 @@
+.list-btn{
+  width:100%;
+  height: 65px;
+  color:black;
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #0000;
+  border-bottom: solid 1px lightgray;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+
+}
+.list-btn-text{
+  margin: 0px;
+  color: black;
+  font-size: 14px;
+  font-family:serif;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+.list-btn-date{
+  margin: 0px;
+  color: black;
+  font-size: 10px;
+  font-family:serif;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+.list-btn:hover{
+  background-color:lightgray;
+}
+.list-btn-onslect{
+  width:100%;
+  height: 65px;
+  color:black;
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: lightgray;
+  border-bottom: solid 1px lightgray;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  outline: none;
+
+}
+.list-btn-text-onSelect{
+  margin: 0px;
+  color:black;
+  font-size: 14px;
+  font-family:serif;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 10px;
+}
+.list-btn-date-onSelect{
+  margin: 0px;
+  color:black;
+  font-size: 10px;
+  font-family:serif;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 10px;
+}
+.list-container{
+
+}

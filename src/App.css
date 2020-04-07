@@ -1,7 +1,5 @@
+.app{
+  height: 790px;
+  width:100%;
 
-.hello{
-  margin :200px;
-  background-color: red;
-  width:800px;
-  height: 400px;
 }

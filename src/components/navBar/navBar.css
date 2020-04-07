@@ -1,0 +1,9 @@
+.nav-bar-container{
+  width: 5%;
+  height:100%;
+  background-color: #DCDCDC;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0px;
+  border-right: 0.5px #DCDCDC;
+}

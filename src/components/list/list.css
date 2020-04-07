@@ -1,0 +1,25 @@
+.list-container{
+  width:30%;
+  height:100%;
+  border:solid 1px lightgray;
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;
+}
+.list-separater-div{
+  border-top: 0.05px ridge  #233659;
+  padding-top: 8px;
+  margin-top: 5px;
+}
+.add-entry{
+border:solid 1px lightgray;
+margin:0px;
+
+  justify-content: flex-end;
+  background-color: #DCDCDC;
+}
+.block1{
+  display: flex;
+  flex-direction: column;
+
+}
