@@ -1,0 +1,58 @@
+.home-container{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: row;
+}
+.logo-div{
+  width: 45%;
+ text-align: center;
+ padding-top: 270px;
+ background-color: #4ebdf8;
+ color : white;
+ font-size: 55px;
+ font-weight: 900;
+ font-family: sans-serif;
+}
+.form-div{
+  width: 55%;
+ text-align: center;
+ padding-top: 165px;
+ background-color:white;
+ color : black;
+ font-size: 35px;
+ font-weight: 600;
+ font-family: sans-serif;
+
+}
+.form-footer{
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: balck;
+  opacity: 50%;
+  text-align: center;
+  margin-left: 270px;
+
+}
+.home-header{
+  padding-bottom: 35px;
+  font-family: sans-serif;
+}
+.sign-in{
+  font-size: 12px;
+  background-color: inherit;
+  border:none;
+  outline: none;
+  color:#4ebdf8;
+  font-family: sans-serif;
+}
+.error-text{
+  font-size: 12px;
+  font-family: sans-serif;
+  padding-top: 0px;
+  color :red;
+  opacity: 60%;
+  margin-top: 0px;
+}

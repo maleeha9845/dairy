@@ -1,9 +1,36 @@
 .nav-bar-container{
-  width: 5%;
+  width: 3.5%;
   height:100%;
-  background-color: #DCDCDC;
+  background-color:#fefefe;
+
   display: flex;
   flex-direction: column;
   margin-right: 0px;
-  border-right: 0.5px #DCDCDC;
+  border-right: 1px solid #e7e7e7;
+
+}
+.icon{
+  color: black;
+  opacity: 50%;
+
+
+}
+.icon:hover{
+  color: #4ebdf8;
+
+}
+.icon-selected{
+  color: #4ebdf8;
+  opacity: 50%;
+}
+.nav-btn{
+  width: 100%;
+  padding: 5px;
+  background-color: inherit;
+  outline: inherit;
+  text-align: center;
+  padding-left: 4px;
+  border: none;
+  margin-bottom: 30%;
+  margin-top: 10px;
 }

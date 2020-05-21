@@ -1,0 +1,42 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 25px;
+
+}
+.lable{
+  font-size: 15px;
+font-family: sans-serif;
+color: black;
+opacity:80%;
+margin-right: 20px;
+padding-top: 0px;
+padding-left: 0px;
+margin-top: 0px;
+}
+
+.lable-onselect{
+font-size: 15px;
+font-family: sans-serif;
+color: #4ebdf8;
+opacity:80%;
+margin-right: 20px;
+padding-top: 0px;
+padding-left: 0px;
+margin-top: 0px;
+}
+.input-field{
+  border: none;
+  border-bottom: 1px solid black;
+  opacity: 60%;
+  font-size: 13px;
+  width:250px;
+  outline: none;
+  background-color: inherit;
+}
+.input-field:focus{
+    border-bottom: 1px solid #4ebdf8;
+    width:250px;
+}

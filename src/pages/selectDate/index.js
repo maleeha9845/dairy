@@ -30,8 +30,7 @@ class SelectDate extends Component {
         ) :'try again'
         }
         </div>
-
-    );
+      );
    }
  }
 
@@ -39,7 +38,7 @@ const mapDispathToProps = dispatch => ({
       readApiRequest: (params) => {dispatch(readApiRequest(params))},
   });
 
-    const mapStateToProps = (state, props) => {
+  const mapStateToProps = (state, props) => {
       return {
         read: state.read,
       }

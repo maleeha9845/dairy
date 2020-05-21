@@ -1,0 +1,31 @@
+
+.popup{
+position: fixed;
+ top: 0;
+ left: 0;
+ width:100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.6);
+ z-index:5;
+ 
+}
+
+.new{
+  position:fixed;
+  background: white;
+  width: 30%;
+  height: auto;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+
+  border-radius: 8px;
+  display:block;
+
+}
+.pop-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+.submitbutton{
+    background-color:#4ebdf8;
+    width:auto;
+    margin-right: 5px;
+    border:solid 1px;
+    border:none;
+    border-radius: 8px;
+    cursor: pointer;
+    height:35px;
+    margin-bottom: 10px;
+    outline: none;
+    margin-top: 10px;
+
+}
+
+.submitbuttontext{
+    color:white;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0px;
+    text-align: center;
+    padding-left: 25px;
+    padding-right:25px;
+    padding-top: 6px;
+    padding-bottom: 8px;
+  }

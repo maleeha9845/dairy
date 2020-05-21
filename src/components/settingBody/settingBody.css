@@ -1,0 +1,63 @@
+.setting-body-container{
+  width: 60%;
+  margin-left: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.profile-pic{
+  width:68px;
+  height:68px;
+  margin-right: 25px;
+  margin-left: 10px;
+}
+.profile-div{
+  display: flex;
+  flex-direction: row;
+
+}
+.setting-text{
+  font-size: 15px;
+  font-family: sans-serif;
+  color: black;
+  opacity:80%;
+  margin-right: 20px;
+  padding-top: 15px;
+  padding-left: 0px;
+
+}
+.setting-body-icon{
+  padding-top: 10px;
+
+}
+.set-icon-btn{
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+}
+.setting-input-div{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: none;
+  margin-left: none;
+
+  border-bottom: 1.5px solid #f4f4f4;
+}
+.setting-list{
+  margin-top: 10px;
+  display: flex;
+  flex-direction:column;
+}
+.logOut-div{
+  margin-top: 20px;
+}
+.logout-btn{
+  border: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  color:#4ebdf8;
+  outline: none;
+}

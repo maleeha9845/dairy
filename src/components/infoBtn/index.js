@@ -6,7 +6,6 @@ class InfoBtn extends Component {
   constructor(props) {
     super(props);
    }
-   
    render() {
       return (
         <div>
@@ -14,8 +13,6 @@ class InfoBtn extends Component {
        </div>
     );
    }
-
-
  }
 
 export default InfoBtn;

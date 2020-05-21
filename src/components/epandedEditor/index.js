@@ -13,42 +13,42 @@ import readApiRequest from '../../actions/read.js';
 
 
 class ExpandedEditor extends React.Component {
-  constructor(props) {
-    super(props);
 
-    let editorState;
-      const content = this.props.content;
-    if (content) {
-     console.log('1');
-      const blocksFromHTML = convertFromHTML(content);
-      const contentState = ContentState.createFromBlockArray(blocksFromHTML);
-      editorState = EditorState.createWithContent(contentState);
+      constructor(props) {
+        super(props);
+        const editorState =
+         this.state = {
+          editorState: this.props.content? EditorState.createWithContent(
+            ContentState.createFromBlockArray(
+             convertFromHTML(this.props.content)
+           )
+         ) : EditorState.createEmpty(),
+
+        };
+        this.uploadImageCallBack = this.uploadImageCallBack.bind(this);
     }
-    else {
-      editorState = EditorState.createEmpty();
-    }
 
-    this.state = {
-      editorState,
-      uploadedImages:[],
-
+    onEditorStateChange: Function = (editorState ) => {
+      this.setState({
+        editorState,
+     });
     };
-    this.uploadImageCallBack = this.uploadImageCallBack.bind(this);
-    this.saveMe=this.saveMe.bind(this);
-  }
 
+   // componentWillReceiveProps(){
+   //   this.setState({
+   //      editorState:EditorState.createWithContent(
+   //        ContentState.createFromBlockArray(
+   //         convertFromHTML(this.props.content)
+   //       )
+   //     )
+   //    }
+   //  )}
 
-  onEditorStateChange =
-    (editorState) => this.setState({
-      editorState
-    });
-
-  saveMe(){
-      const convertedData = convertToRaw(this.state.editorState.getCurrentContent());
-      const data = convertedData.blocks[0].text;
-      this.props.readApiRequest(data);
-    }
-
+    // componentDidMount(){
+    //       const convertedData = convertToRaw(this.state.editorState.getCurrentContent());
+    //       const data = convertedData.blocks[0].text;
+    //       this.props.readApiRequest(data);
+    //     }
   uploadImageCallBack(file){
       let uploadedImages = this.state.uploadedImages;
       const imageObject = {
@@ -58,7 +58,7 @@ class ExpandedEditor extends React.Component {
       uploadedImages.push(imageObject);
       this.setState({
         uploadedImages: uploadedImages
-    })
+      })
      // We need to return a promise with the image src
       return new Promise(
         (resolve, reject) => {
@@ -68,15 +68,12 @@ class ExpandedEditor extends React.Component {
     }
 
    render() {
-
      return(
-       <div  class='editor'>
-        <div class = 'tool-div'>
-        <Editor
-            toolbarClassName="tool-bar"
-            editorState={this.state.editorState}
-            defaultEditorState={ this.state.editorState }
-            onEditorStateChange={this.onEditorStateChange}
+       <div  class='editor-short'>
+       <Editor
+           toolbarClassName="tool-bar-ex"
+           onEditorStateChange= {this.props.onEditorStateChange}
+              editorState={this.props.editorState}
             toolbar={{
             options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'colorPicker', 'link', 'embedded', 'emoji', 'image', 'remove', 'history'],
             inline: { inDropdown: false , visible: true,
@@ -95,11 +92,7 @@ class ExpandedEditor extends React.Component {
           }
         />
        </div>
-       <div>
 
-           <SideBarBtn lable ='save'  active = '2' parent='parent' onClick = {this.saveMe}/>
-       </div>
-     </div>
     );
    }
  }

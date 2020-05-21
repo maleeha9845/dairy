@@ -1,41 +1,230 @@
-.save{
 
-
-}
-.tool-bar{
-  width: 100%;
-}
 .editor{
-  width: 100%;
+  width: 60%;
   height:100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.tools{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: pink;
-}
-.tool-div{
-  display:flex;
 
-  width: 100%;
+
+}
+.editor-side{
+  width: 82%;
   height:100%;
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;
+  justify-content: space-between;
 
 }
+
+.editor-nav{
+  width: 96%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.editor-list{
+  width: 75%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.tool-div{
+  width:100%;
+  display:flex;
+  display: flex;
+  flex-direction: row;
+
+}
+.tool-bar{
+  width:100%;
+  margin-right: none;
+  height:43px;
+  border-right: none;
+}
+.editor-short{
+  width:98%;
+  height:100%;
+
+}
+
+.icon-drop{
+  margin-bottom: 10px;
+  color : black;
+  opacity: 50%
+}
+.icon-drop:hover{
+  color:#4ebdf8;
+}
 .expand-btn{
-  width: 5%;
+  width: 10%;
   padding: 0px;
-  height: 46px;
+  height: 51px;
   font-size: 50px;
   background-color: inherit;
   border:none;
   outline: none;
+  border-bottom: solid 1px #f4f4f4;
+}
+.expand-btn-ex{
+  width: 10%;
+  padding-right: 10px;
+  padding-bottom:120px;
+  margin-top: none;
+  padding-top: 0px;
+  height: 97px;
+  font-size: 50px;
+  background-color: inherit;
+  border-bottom:1px solid #f4f4f4;
+  border-left:none;
+  border-right: none;
+  outline: none;
   border-color: solid 1px lightgray;
+}
+.expand-side-btn-ex{
+  width: 10%;
+  padding-right: 10px;
+  padding-bottom:60px;
+  margin-top: none;
+  padding-top: 0px;
+  height: 84px;
+  font-size: 50px;
+  background-color: inherit;
+  border-bottom:1px solid #f4f4f4;
+  border-left:none;
+  border-right: none;
+  outline: none;
+  border-color: solid 1px lightgray;
+}
+.expand-list-btn-ex{
+  width: 10%;
+  padding-right: 10px;
+  padding-bottom:60px;
+  margin-top: none;
+  padding-top: 0px;
+  height: 84px;
+  font-size: 50px;
+  background-color: inherit;
+  border-bottom:1px solid #f4f4f4;
+  border-left:none;
+  border-right: none;
+  outline: none;
+  border-color: solid 1px lightgray;
+}
+.editor-footer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: content-box;
+  border: 1px solid #f4f4f4;
+  border-right: none;
+  height:6.9%;
+  margin-left: 0px;
+
+}
+.date{
+  font-size: 14px;
+  color:black;
+  opacity: 50%;
+ font-family: sans-serif;
+  padding-top: 8px;
+  margin-left: 25px;
+}
+.location{
+  color: black;
+  font-size: 14px;
+  opacity: 50%;
+  font-weight: 600;
+  padding-top: 8px;
+  font-family: sans-serif;
+  margin-left: 25px;
+  padding-right: 40px;
+}
+.save-btn{
+
+  background-color: inherit;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  color:#4ebdf8;
+  border: none;
+  font-family: sans-serif;
+  outline: none;
+  float:flex-end;
+}
+.save-btn:hover{
+  background-color: #f4f4f4;
+}
+.side-save-btn{
+  background-color: inherit;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  color:#4ebdf8;
+  border: none;
+  font-family: sans-serif;
+  outline: none;
+
+  float:flex-end;
+}
+.side-save-btn:hover{
+  background-color: #f4f4f4
+
+}
+.list-save-btn{
+  background-color: inherit;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  color:#4ebdf8;
+  border: none;
+  font-family: sans-serif;
+  outline: none;
+
+  float:flex-end;
+}
+.side-save-btn:hover{
+  background-color: #f4f4f4
+
+
+}
+.nav-save-btn{
+  background-color: inherit;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  color:#4ebdf8;
+  border: none;
+  font-family: sans-serif;
+  outline: none;
+
+  float:flex-end;
+}
+.nav-save-btn:hover{
+  background-color: #f4f4f4
+
+
+}
+.list{
+  font-size: 14px;
+  color :#4ebdf8;
+  margin-left: 20px;
+  font-family: sans-serif;
+  padding-top: 6px;
+}
+.read{
+  font-size: 16px;
+  margin-left: 40px;
+  font-family: sans-serif;
+  margin-top: 50px;
+}
+.read-header{
+  margin-top: 50px;
+  font-size: 22px;
+  margin-left: 20px;
+  font-family: sans-serif;
 }

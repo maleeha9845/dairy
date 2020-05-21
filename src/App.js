@@ -4,12 +4,13 @@ import { Switch, BrowserRouter as Router, Route ,browserHistory } from "react-ro
 
 import './App.css';
 import MyEditor from './components/editor/index.js';
-import EditorData from './pages/editordata.js';
 import SendInfo from './pages/sendInfo/index.js';
-import Info from './pages/info/index.js';
 import SelectDate from './pages/selectDate/index.js';
 import Dashboard from './pages/dashboard/index.js';
-
+import HomePage from './pages/homePage/index.js';
+import Login from './pages/login/index.js';
+import ForgotPassword from './pages/forgot/index.js';
+import popUpInput from './components/popupInputField/index.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,15 +23,16 @@ class App extends React.Component {
     return (
       <div class = 'app'>
       <Router>
-
       <switch>
-      <Route path="/dash" component={Dashboard}/>
-          <Route path="/editor" component={MyEditor}/>
-          <Route path="/mydata/:date"  component={EditorData}/>
-          <Route path="/send" component={SendInfo}/>
-          <Route path="/info/:key"  component={Info}/>
-          <Route path="/select"  component={SelectDate}/>
-        </switch>
+        <Route path="/dash" component={Dashboard}/>
+        <Route path="/home" component={HomePage}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/editor" component={MyEditor}/>
+        <Route path="/send" component={SendInfo}/>
+        <Route path="/select"  component={SelectDate}/>
+        <Route path="/forgot"  component={ForgotPassword}/>
+        <Route path="/pop"  component={popUpInput}/>
+     </switch>
      </Router>
       </div>
     );

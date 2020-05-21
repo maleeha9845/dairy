@@ -32,8 +32,7 @@ class SendInfo extends Component {
         ) :'try again'
         }
         </div>
-
-    );
+     );
    }
  }
 
