@@ -1,6 +1,7 @@
 .app{
-  height: 790px;
-  width:1445px;
+  height: 100vh;
+  width:100vw;
+  position: fixed;
   
 
 }

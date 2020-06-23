@@ -46,8 +46,7 @@
 }
 .header{
   height:6.9%;
-
-    display: flex;
+  display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     background-color:white;

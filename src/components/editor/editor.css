@@ -7,6 +7,7 @@
   justify-content: space-between;
 
 
+
 }
 .editor-side{
   width: 82%;
@@ -45,11 +46,15 @@
   margin-right: none;
   height:43px;
   border-right: none;
+  padding-left: 10px;
 }
 .editor-short{
   width:98%;
   height:100%;
 
+}
+.editor-bar{
+  padding :18px;
 }
 
 .icon-drop{

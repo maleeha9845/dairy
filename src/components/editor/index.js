@@ -121,6 +121,7 @@ saveContent(){
           <Editor
            onEditorStateChange= {this.onEditorStateChangeWithContent}
            toolbarClassName="tool-bar"
+           editorClassName = 'editor-bar'
           editorState={this.state.editorStateWithContent}
            toolbar={{
                 options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'textAlign', 'colorPicker', 'emoji', 'image'],
@@ -205,6 +206,7 @@ saveContent(){
              <Editor
               onEditorStateChange= {this.onEditorStateChange}
               toolbarClassName="tool-bar"
+               editorClassName = 'editor-bar'
              editorState={this.state.editorstateEmpty}
               toolbar={{
                    options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'textAlign', 'colorPicker', 'emoji', 'image'],

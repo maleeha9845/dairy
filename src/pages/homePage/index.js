@@ -64,7 +64,9 @@ class HomePage extends Component {
     return (
       <div class = 'home-container'>
        <div class = 'logo-div'>
+
          <p>Journal</p>
+      
         </div>
         <div class = 'form-div'>
           <p class = 'home-header'> Sign up </p>

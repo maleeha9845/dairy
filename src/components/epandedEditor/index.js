@@ -72,6 +72,7 @@ class ExpandedEditor extends React.Component {
        <div  class='editor-short'>
        <Editor
            toolbarClassName="tool-bar-ex"
+            editorClassName = 'editor-bar'
            onEditorStateChange= {this.props.onEditorStateChange}
               editorState={this.props.editorState}
             toolbar={{

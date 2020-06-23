@@ -10,15 +10,20 @@ function loginSaga(data){
        })
        .then(function (response) {
          console.log(response);
+         return response.data;
+
+       }).catch(function(error){
+         console.log(error);
+         return error.response;
        })
        return response;
      }
 
 export default function* loginWorker(action){
   try{
-    const response = loginSaga(action.payload);
+    const response =  loginSaga(action.payload);
     yield put({type: LOGIN_SUCCESS, payload: response });
   }catch (error){
-    yield put({ type: LOGIN_FAILURE, error:error });
+    yield put({ type: LOGIN_FAILURE, payload:error });
  }
 }
