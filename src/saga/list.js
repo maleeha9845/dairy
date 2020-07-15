@@ -3,6 +3,12 @@ import { LIST_API_SUCCESS, LIST_API_FAILURE } from "../actiontypes/list.js";
 
 
 function listApi(data){
+  // const response = axios.get('http://localhost:4000/auth/register', Entries[0].section[0].overview)
+  //                  .then(function (response) {
+  //                    console.log(response);
+  //                  })
+  //    return response;
+  // 
   return(data);
 }
 

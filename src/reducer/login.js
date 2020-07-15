@@ -16,7 +16,7 @@ const login = (state = initialState, action) => {
       };
     case LOGIN_FAILURE:
       return{
-        ... state , error : action.error
+        ... state , error : action.error.data
       };
       default:
       return state;

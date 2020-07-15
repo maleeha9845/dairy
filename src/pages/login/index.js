@@ -25,8 +25,8 @@ class Login extends Component {
     });
   }
 
-  login(path){
-    //path.push('/dash');
+  login(){
+
     const data = {
                   email : this.state.email,
                   password : this.state.password,
@@ -42,14 +42,13 @@ class Login extends Component {
         path.push('/forgot')
       }
 
-  componentDidUpdate(){
-      if(this.props.login.data &&
-      (this.props.login.data.email === 'maleehabaw@gmail.com' &&
-       this.props.login.data.password === 'mal')
-       ){
-         this.props.history.push("/dash");
-        }
-      }
+componentDidUpdate(){
+  if(this.props.login.data && this.props.login.data.token ){
+    this.props.history.push("/dash");
+
+  }
+}
+
 
   render() {
     return (
@@ -67,15 +66,13 @@ class Login extends Component {
            <InputFieldHome icon = 'email' handleChange ={this.handleChange} name ='email' placeholder = 'email'/>
            <InputFieldHome icon = 'password'  handleChange ={this.handleChange} name = 'password' placeholder ='password'/>
            {
-             this.props.login.error &&
-              this.props.login.error.response  &&
-              this.props.login.error.response.data ?
-              <p>{this.props.login.error.response.data}</p> : null
+             this.props.login.error ?
+              <p class ='error-text'>{this.props.login.error}</p> : null
            }
-           <SubmitBtn lable = 'Log in' myButton= {()=>this.login(this.props.history)}/>
+           <SubmitBtn lable = 'Log in' myButton= {()=>this.login()}/>
           </div>
           <div class = 'login-form-footer'>
-           <button  class = 'Forgot-password' onClick = {()=>this.forgotBtn(this.props.history)}>Forgot password? </button>
+           <button  class = 'Forgot-password' onClick = {()=>this.forgotBtn()}>Forgot password? </button>
           </div>
         </div>
       </div>

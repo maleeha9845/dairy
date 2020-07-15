@@ -3,6 +3,12 @@ import { SIDE_BAR_SUCCESS, SIDE_BAR_FAILURE } from "../actiontypes/side.js";
 
 
 function sideApi(data){
+  // const response = axios.get('http://localhost:4000/auth/register', Entries)
+  //                  .then(function (response) {
+  //                    console.log(response);
+  //                  })
+  //    return response;
+  //
   const Entries = [
     {user_id : 123,
     userdetails: {},
@@ -34,6 +40,7 @@ function sideApi(data){
 }
 
 export default function* sideApiWorker(action){
+  console.log('asdfasdfasdfasdfasdfadsfasdfasd----------------------')
   try{
     const response = yield sideApi();
     yield put({ type: SIDE_BAR_SUCCESS, payload : response})

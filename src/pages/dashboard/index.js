@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter ,BrowserRouter as Router ,Route} from "react-router-dom";
 import  {connect} from 'react-redux';
+import axios from 'axios';
 
 import './dash.css';
 import NavBar from '../../components/navBar/index.js';
@@ -12,6 +13,8 @@ import listApiRequest from '../../actions/list.js';
 import Search from '../search/index.js';
 import Setting from '../settings/index.js';
 import registerRequest from '../../actions/register.js';
+import loginRequest from '../../actions/login.js';
+
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -90,22 +93,23 @@ class Dashboard extends Component {
 	}
 // calling actions ...
   componentWillMount(){
-    this.props.sideBarRequest();
-		 this.props.listApiRequest();
-		//  if(this.props.register.data &&
-		// 		(this.props.register.data.name !== '' &&
-		// 		this.props.register.data.email !== '' &&
-		// 		this.props.register.data.password !== '')
-		// 	){
-		// 	this.props.history.push("/dash");
-		// }else{
-		// 	this.props.history.push('/home');
-		// }
-								  }
+					this.props.sideBarRequest();
+		 			this.props.listApiRequest();
+
+
+				};
+
+
 // setting last entry as default editor content...
 	componentDidUpdate(){
-		if(this.state.content === ''){
-			const data = this.props.side &&
+ 		const token = this.props.login.data &&
+									this.props.login.data.token ? this.props.login.data.token :
+									null;
+									axios.defaults.headers.common['Authorization'] = token;
+									console.log(token);
+
+					if(this.state.content === ''){
+						const data = this.props.side &&
 										 this.props.side.data &&
 										 this.props.side.data['journal']?
 										 this.props.side.data['journal']['editorData']:
@@ -171,232 +175,232 @@ class Dashboard extends Component {
 	})
  }
 
-   render(){
+render(){
 		 const data1 = this.props.side &&
-                    this.props.side.data &&
-                    this.props.side.data['journal']?
-                    this.props.side.data['journal']['editorData']:
-                    'ok';
-		 const data2 = this.props.side &&
-							     this.props.side.data &&
-							     this.props.side.data['journal']?
-							      this.props.side.data['journal']['editorData2']:
-							      'ok';
+	 					       this.props.side.data &&
+	 					       this.props.side.data['journal']?
+	 					       this.props.side.data['journal']['editorData']:
+	 					      'ok';
+									console.log(data1);
+	 	const data2 = this.props.side &&
+	 								this.props.side.data &&
+	 								this.props.side.data['journal']?
+	 							 	this.props.side.data['journal']['editorData2']:
+	 							 	'ok';
+	 					 // defalut open page . nav list side and edtior is open ....
+	 							 if (this.state.appearSideBar === 'true' && this.state.appearListBar === 'true'){
+	 					      const parent = this.props.one;
+	 					      return (
+	 					       <div class = 'container'>
+	 							   	<NavBar
+	 										journal={()=>this.navBtnFunc('journal') }
+	 										settings = {()=>this.navBtnFunc('settings')}
+	 										search = {()=>this.navBtnFunc('search')}
+	 										selectedMe = {this.state.activePage}
+	 					         />
+	 									 <SideBar
+	 					 					activeSideBar={this.state.activeSideBar}
+	 					 					holiday={()=>this.sideBtnFunc('holidays' ,'1') }
+	 					 					events = {()=>this.sideBtnFunc('events','2')}
+	 					 					daily={()=>this.sideBtnFunc('daily','3') }
+	 					 					travel = {()=>this.sideBtnFunc('travel','4')}
+	 					 					recipies={()=>this.sideBtnFunc('recipies','5') }
+	 					 					close= {()=>this.closeBtn()}
+	 					 					active = {this.state.selectSideBtn}
+	 					 				/>
+	 									 <ListBar
+	 										 activeSideBar={this.state.activeSideBar}
+	 										 activeSidelist={this.state.activeSidelist}
+	 										 child1 = {()=>this.data('1' , data1)}
+	 										 child2 = {()=>this.data('2', data2)}
+	 										 child3 = {()=>this.data('3' , 'varna lake')}
+	 										 active = {this.state.selectListBtn}
+	 										 close= {()=>this.closeBtnList()}
+	 										 emptyEditor = {this.emptyEditor}
+	 										 add ={this.state.add}
+	 										 activeSave={this.activeSave.bind(this)}
+	 										 />
+	 										 <MyEditor
+	 					          	content = {this.state.content}
+	 											editorSide = {this.state.appearSideBar}
+	 											 editorList= {this.state.appearListBar}
+	 											 editorNav = ''
+	 											 readJournal = {this.state.readJournal}
+	 											 viewBtn={this.viewBtn}
+	 											 edit={this.editBtn}
+	 											emptyEditor={this.state.emptyEditor}
+	 											save = {() => this.save() }
+	 					            saveData = {this.state.save}
+	 											/>
+	 					        </div>
+	 					      );
+	 					     }
+	 					//when side bar is closed ....
+	 						   else{
+	 					        if (this.state.appearSideBar === 'false' && this.state.appearListBar === 'true'){
+	 									const parent = this.props.one;
+	 									return(
 
-		 console.log(this.state.child);
- // defalut open page . nav list side and edtior is open ....
-		 if (this.state.appearSideBar === 'true' && this.state.appearListBar === 'true'){
-      const parent = this.props.one;
-      return (
-       <div class = 'container'>
-		   	<NavBar
-					journal={()=>this.navBtnFunc('journal') }
-					settings = {()=>this.navBtnFunc('settings')}
-					search = {()=>this.navBtnFunc('search')}
-					selectedMe = {this.state.activePage}
-         />
-				 <SideBar
- 					activeSideBar={this.state.activeSideBar}
- 					holiday={()=>this.sideBtnFunc('holidays' ,'1') }
- 					events = {()=>this.sideBtnFunc('events','2')}
- 					daily={()=>this.sideBtnFunc('daily','3') }
- 					travel = {()=>this.sideBtnFunc('travel','4')}
- 					recipies={()=>this.sideBtnFunc('recipies','5') }
- 					close= {()=>this.closeBtn()}
- 					active = {this.state.selectSideBtn}
- 				/>
-				 <ListBar
-					 activeSideBar={this.state.activeSideBar}
-					 activeSidelist={this.state.activeSidelist}
-					 child1 = {()=>this.data('1' , data1)}
-					 child2 = {()=>this.data('2', data2)}
-					 child3 = {()=>this.data('3' , 'varna lake')}
-					 active = {this.state.selectListBtn}
-					 close= {()=>this.closeBtnList()}
-					 emptyEditor = {this.emptyEditor}
-					 add ={this.state.add}
-					 activeSave={this.activeSave.bind(this)}
-					 />
-					 <MyEditor
-          	content = {this.state.content}
-						editorSide = {this.state.appearSideBar}
-						 editorList= {this.state.appearListBar}
-						 editorNav = ''
-						 readJournal = {this.state.readJournal}
-						 viewBtn={this.viewBtn}
-						 edit={this.editBtn}
-						emptyEditor={this.state.emptyEditor}
-						save = {() => this.save() }
-            saveData = {this.state.save}
-						/>
-        </div>
-      );
-     }
-//when side bar is closed ....
-	   else{
-        if (this.state.appearSideBar === 'false' && this.state.appearListBar === 'true'){
-				const parent = this.props.one;
-				return(
+	 					          <div class = 'container'>
+	 							 		   <NavBar
+	 										 journal={()=>this.navBtnFunc('journal') }
+	 										 settings = {()=>this.navBtnFunc('settings')}
+	 										 search = {()=>this.navBtnFunc('search')}
+	 										 selectedMe = {this.state.activePage}
 
-          <div class = 'container'>
-		 		   <NavBar
-					 journal={()=>this.navBtnFunc('journal') }
-					 settings = {()=>this.navBtnFunc('settings')}
-					 search = {()=>this.navBtnFunc('search')}
-					 selectedMe = {this.state.activePage}
+	 					         	 />
+	 										 <ListBar
+	 										 activeSideBar={this.state.activeSideBar}
+	 										 activeSidelist={this.state.activeSidelist}
+	 										 child1 = {()=>this.data('1' , data1)}
+	 										 child2 = {()=>this.data('2', data2)}
+	 										 child3 = {()=>this.data('3' , 'varna lake')}
+	 										 active = {this.state.selectListBtn}
+	 										 close= {()=>this.closeBtnList()}
+	 										 emptyEditor = {this.emptyEditor}
+	 										 add ={this.state.add}
+	 										 activeSave={this.activeSave.bind(this)}
+	 											/>
+	 											 <MyEditor
+	 											 content = {this.state.content}
+	 											 editorSide = {this.state.appearSideBar}
+	 											  editorList= {this.state.appearListBar}
+	 											  editorNav = ''
+	 											  readJournal = {this.state.readJournal}
+	 											  viewBtn={this.viewBtn}
+	 											  edit={this.editBtn}
+	 											 emptyEditor={this.state.emptyEditor}
+	 											 save = {() => this.save() }
+	 											 saveData = {this.state.save}
+	 												/>
 
-         	 />
-					 <ListBar
-					 activeSideBar={this.state.activeSideBar}
-					 activeSidelist={this.state.activeSidelist}
-					 child1 = {()=>this.data('1' , data1)}
-					 child2 = {()=>this.data('2', data2)}
-					 child3 = {()=>this.data('3' , 'varna lake')}
-					 active = {this.state.selectListBtn}
-					 close= {()=>this.closeBtnList()}
-					 emptyEditor = {this.emptyEditor}
-					 add ={this.state.add}
-					 activeSave={this.activeSave.bind(this)}
-						/>
-						 <MyEditor
-						 content = {this.state.content}
-						 editorSide = {this.state.appearSideBar}
-						  editorList= {this.state.appearListBar}
-						  editorNav = ''
-						  readJournal = {this.state.readJournal}
-						  viewBtn={this.viewBtn}
-						  edit={this.editBtn}
-						 emptyEditor={this.state.emptyEditor}
-						 save = {() => this.save() }
-						 saveData = {this.state.save}
-							/>
+	 										</div>
+	 								 );
+	 						   }
+	 					// when list bar is closed..
+	 							 else{
+	 						        if (this.state.appearSideBar === 'true' && this.state.appearListBar === 'false'){
+	 										const parent = this.props.one;
+	 										return(
+	 						          <div class = 'container'>
+	 								 		   <NavBar
+	 											 journal={()=>this.navBtnFunc('journal') }
+	 											 settings = {()=>this.navBtnFunc('settings')}
+	 											 search = {()=>this.navBtnFunc('search')}
+	 											 selectedMe = {this.state.activePage}
+	 						         	 />
+	 											 <SideBar
+	 												 activeSideBar={this.state.activeSideBar}
+	 												 holiday={()=>this.sideBtnFunc('holidays' ,'1') }
+	 												 events = {()=>this.sideBtnFunc('events','2')}
+	 												 daily={()=>this.sideBtnFunc('daily','3') }
+	 												 travel = {()=>this.sideBtnFunc('travel','4')}
+	 												 recipies={()=>this.sideBtnFunc('recipies','5') }
+	 											   close= {()=>this.closeBtn()}
+	 												 active = {this.state.selectSideBtn}
+	 											 />
+	 												 <MyEditor
+	 					               content = {this.state.content}
+	 												 editorSide = {this.state.appearSideBar}
+	 													editorList= {this.state.appearListBar}
+	 													editorNav = ''
+	 													readJournal = {this.state.readJournal}
+	 													viewBtn={this.viewBtn}
+	 													edit={this.editBtn}
+	 												 emptyEditor={this.state.emptyEditor}
+	 												 save = {() => this.save() }
+	 												 saveData = {this.state.save}
+	 													/>
+	 												</div>
+	 									    );
+	 							   }
+	 					// when both side and list is closed...
+	 								 else{
+	 							        if (this.state.appearEDitor === 'true' ){
+	 											const parent = this.props.one;
+	 											return(
+	 							          <div class = 'container'>
+	 									 		   <NavBar
+	 												 journal={()=>this.navBtnFunc('journal') }
+	 												 settings = {()=>this.navBtnFunc('settings')}
+	 												 search = {()=>this.navBtnFunc('search')}
+	 												 selectedMe = {this.state.activePage}
+	 							         	 />
+	 													 <MyEditor
+	 					                content = {this.state.content}
+	 													editorSide = {this.state.appearSideBar}
+	 													 editorList= {this.state.appearListBar}
+	 													 editorNav = 'true'
+	 													 readJournal = {this.state.readJournal}
+	 													 viewBtn={this.viewBtn}
+	 													 edit={this.editBtn}
+	 													emptyEditor={this.state.emptyEditor}
+	 													save = {() => this.save() }
+	 													saveData = {this.state.save}
+	 														/>
 
-					</div>
-			 );
-	   }
-// when list bar is closed..
-		 else{
-	        if (this.state.appearSideBar === 'true' && this.state.appearListBar === 'false'){
-					const parent = this.props.one;
-					return(
-	          <div class = 'container'>
-			 		   <NavBar
-						 journal={()=>this.navBtnFunc('journal') }
-						 settings = {()=>this.navBtnFunc('settings')}
-						 search = {()=>this.navBtnFunc('search')}
-						 selectedMe = {this.state.activePage}
-	         	 />
-						 <SideBar
-							 activeSideBar={this.state.activeSideBar}
-							 holiday={()=>this.sideBtnFunc('holidays' ,'1') }
-							 events = {()=>this.sideBtnFunc('events','2')}
-							 daily={()=>this.sideBtnFunc('daily','3') }
-							 travel = {()=>this.sideBtnFunc('travel','4')}
-							 recipies={()=>this.sideBtnFunc('recipies','5') }
-						   close= {()=>this.closeBtn()}
-							 active = {this.state.selectSideBtn}
-						 />
-							 <MyEditor
-               content = {this.state.content}
-							 editorSide = {this.state.appearSideBar}
-								editorList= {this.state.appearListBar}
-								editorNav = ''
-								readJournal = {this.state.readJournal}
-								viewBtn={this.viewBtn}
-								edit={this.editBtn}
-							 emptyEditor={this.state.emptyEditor}
-							 save = {() => this.save() }
-							 saveData = {this.state.save}
-								/>
-							</div>
-				    );
-		   }
-// when both side and list is closed...
-			 else{
-		        if (this.state.appearEDitor === 'true' ){
-						const parent = this.props.one;
-						return(
-		          <div class = 'container'>
-				 		   <NavBar
-							 journal={()=>this.navBtnFunc('journal') }
-							 settings = {()=>this.navBtnFunc('settings')}
-							 search = {()=>this.navBtnFunc('search')}
-							 selectedMe = {this.state.activePage}
-		         	 />
-								 <MyEditor
-                content = {this.state.content}
-								editorSide = {this.state.appearSideBar}
-								 editorList= {this.state.appearListBar}
-								 editorNav = 'true'
-								 readJournal = {this.state.readJournal}
-								 viewBtn={this.viewBtn}
-								 edit={this.editBtn}
-								emptyEditor={this.state.emptyEditor}
-								save = {() => this.save() }
-								saveData = {this.state.save}
-									/>
+	 												</div>
+	 										 );
+	 								   }
+	 					// setting page.
+	 									 else{
+	 								        if (this.state.setting === 'true' ){
+	 												const parent = this.props.one;
+	 												return(
+	 								          <div class = 'container'>
+	 										 		   <NavBar
+	 													 journal={()=>this.navBtnFunc('journal') }
+	 													 settings = {()=>this.navBtnFunc('settings')}
+	 													 search = {()=>this.navBtnFunc('search')}
+	 													 selectedMe = {this.state.activePage}
+	 								         	 />
+	 														 <Setting/>
+	 												</div>
+	 											 );
+	 									   }
+	 					// search page..
+	 										 else{
+	 									        if (this.state.search === 'true' ){
+	 													const parent = this.props.one;
+	 													return(
+	 									          <div class = 'container'>
+	 											 		   <NavBar
+	 														 journal={()=>this.navBtnFunc('journal') }
+	 														 settings = {()=>this.navBtnFunc('settings')}
+	 														 search = {()=>this.navBtnFunc('search')}
+	 														 selectedMe = {this.state.activePage}
+	 									         	 />
+	 															<Search
+	 															 editorNav = 'true'
+	 															 readJournal = {this.state.readJournal}
+	 															 readBtn={this.readBtn}
+	 															 readJournal = {this.state.readJournal}
+	 															 emptyEditor={this.state.emptyEditor}
+	 															 />
 
-							</div>
-					 );
-			   }
-// setting page.
-				 else{
-			        if (this.state.setting === 'true' ){
-							const parent = this.props.one;
-							return(
-			          <div class = 'container'>
-					 		   <NavBar
-								 journal={()=>this.navBtnFunc('journal') }
-								 settings = {()=>this.navBtnFunc('settings')}
-								 search = {()=>this.navBtnFunc('search')}
-								 selectedMe = {this.state.activePage}
-			         	 />
-									 <Setting/>
-							</div>
-						 );
-				   }
-// search page..
-					 else{
-				        if (this.state.search === 'true' ){
-								const parent = this.props.one;
-								return(
-				          <div class = 'container'>
-						 		   <NavBar
-									 journal={()=>this.navBtnFunc('journal') }
-									 settings = {()=>this.navBtnFunc('settings')}
-									 search = {()=>this.navBtnFunc('search')}
-									 selectedMe = {this.state.activePage}
-				         	 />
-										<Search
-										 editorNav = 'true'
-										 readJournal = {this.state.readJournal}
-										 readBtn={this.readBtn}
-										 readJournal = {this.state.readJournal}
-										 emptyEditor={this.state.emptyEditor}
-										 />
+	 														</div>
+	 												 );
+	 										   }
+	 							 else {
 
-									</div>
-							 );
-					   }
-		 else {
+	 					       return(
+	 					        <div class = 'container'>
+	 							  		 <NavBar
+	 							  			 journal={()=>this.navBtnFunc('journal') }
+	 							  			 settings = {()=>this.navBtnFunc('setting')}
+	 											 search = {()=>this.navBtnFunc('search')}
+	 										  />
+	 					        </div>
+	 								  ) ;
+	 							   }
+	 							  }
+	 							 }
+	 					    }
+	 					   }
+	 					  }
+	 					 }
+					 }
 
-       return(
-        <div class = 'container'>
-		  		 <NavBar
-		  			 journal={()=>this.navBtnFunc('journal') }
-		  			 settings = {()=>this.navBtnFunc('setting')}
-						 search = {()=>this.navBtnFunc('search')}
-					  />
-        </div>
-			  ) ;
-		   }
-		  }
-		 }
-    }
-   }
-  }
- }
-}
 
 const mapDispathToProps = dispatch => ({
       sideBarRequest: (params) => {dispatch(sideBarRequest(params))},
@@ -409,6 +413,7 @@ const mapStateToProps = (state, props) => {
         side: state.side,
 				list : state.list,
 				register : state.register,
+				login: state.login,
 			  }
       };
 

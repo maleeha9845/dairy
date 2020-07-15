@@ -10,6 +10,7 @@ function registerSaga(data){
                    "password": data.password,
                 })
                   .then(function (response) {
+                    return response;
                     console.log(response);
                   })
     return response;
@@ -18,7 +19,7 @@ function registerSaga(data){
 export default function* registerWorker(action){
     try{
       const response = yield registerSaga(action.payload);
-      yield put({type: REGISTER_SUCCESS, payload: response });
+      yield put({type: REGISTER_SUCCESS, payload:response });
   }catch (error){
     yield put({ type: REGISTER_FAILURE, error:error });
     }
